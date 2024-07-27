@@ -26,7 +26,7 @@ This Java application generates a random map of 100 cities, each with random lat
 
 1. **Clone the Repository:**
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/gabalepranali/CityRoadSvcRst/tree/main
     cd random-city-map-generator
     ```
 
