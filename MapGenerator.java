@@ -24,3 +24,28 @@ public class MapGenerator {
         }
     }
 }
+
+public static List<Road> generateRandomRoads(List<City> cities) {
+    List<Road> roads = new ArrayList<>();
+    Random random = new Random();
+    for (City city1 : cities) {
+        City city2 = cities.get(random.nextInt(cities.size()));
+        while (city1 == city2) {
+            city2 = cities.get(random.nextInt(cities.size()));
+        }
+        Road.LaneType laneType = Road.LaneType.values()[random.nextInt(Road.LaneType.values().length)];
+        roads.add(new Road(city1, city2, laneType));
+    }
+    return roads;
+}
+
+public static void main(String[] args) {
+    List<City> cities = generateRandomCities();
+    for (City city : cities) {
+        System.out.println(city);
+    }
+    List<Road> roads = generateRandomRoads(cities);
+    for (Road road : roads) {
+        System.out.println(road.getCity1() + " - " + road.getCity2() + " (" + road.getLaneType() + ")");
+    }
+}
